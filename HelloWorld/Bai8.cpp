@@ -16,7 +16,8 @@ int main()
     cin >> tuoi ;
     cout << "\nVui lòng nhập chiều cao của bạn (đơn vị mét) : ";
     cin >> chieuCao ;
-    cout << "\n" << "Tên bạn là : " << ten << endl
+    cout << "\n" 
+         << "Tên bạn là : " << ten << endl
          << "Bạn " << tuoi << " tuổi" << endl
          << "Chiều cao bạn là : " << chieuCao << endl;
     return 0;
