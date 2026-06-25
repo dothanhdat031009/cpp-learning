@@ -2,10 +2,10 @@
 #include <Windows.h>
 
 using namespace std;
-float giaTien{ 0 };
+float giaTien ;
 string donViTien{ " nghìn Việt Nam đồng" };
-double soKg{ 0 };
-int soCai{ 0 };
+double soKg ;
+int soCai ;
 string donVi{ " chưa rõ đơn vị" };
 string xacNhan{ "No" };
 
@@ -91,7 +91,7 @@ int main()
 				 << "Nhập đơn vị (số kg hoặc số cái) sản phẩm bạn mua là : ";
 			cin >> donVi;
 		}
-		cout << "Thuế GTGT ( 1% ) là :                    " << thue() << donViTien << "\n"
+		cout << "Thuế GTGT ( 10% ) là :                   " << thue() << donViTien << "\n"
 			 << "Tổng tiền bạn cần thanh toán là :        " << tong() << donViTien << "\n"
 			 << "\n"
 			 << "\n"
