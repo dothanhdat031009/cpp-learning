@@ -1,14 +1,14 @@
 #include <iostream>
-#include <Windows.h>
+
+double x = 0 ;
+double y = 1 ;
+double z = 2 ;
 
 using namespace std;
 
 int main()
 {
-    SetConsoleOutputCP(65001);
-    double x = 0 ;
-    double y = 1 ;
-    double z = 2 ;
+
     cout << "Nhập x : ";
     cin >> x ;
     cout << "\n"

@@ -1,13 +1,12 @@
 #include <iostream>
-#include <Windows.h>
 
-using namespace std;
 double x = 0 ;
 double y = 0.038;
 
+using namespace std;
+
 int main() 
 {
-	SetConsoleOutputCP(65001);
 	cout << "Hãy nhập số tiền Việt bạn đang có để đổi sang tiền USD (đơn vị nghìn) : ";
 	cin >> x ;
 	double tienDo = x * y;

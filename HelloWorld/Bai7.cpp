@@ -1,15 +1,14 @@
 #include <iostream>
-#include <Windows.h>
 
-using namespace std;
 int a = 0;
 double b = 0;
 char c = 'A';
 bool d = true;
 
+using namespace std;
+
 int main()
 {
-    SetConsoleOutputCP(65001);
     cout << "Giá trị int bạn muốn là : ";
     cin >> a ;
     cout << "\n" << "Giá trị double bạn muốn là : ";

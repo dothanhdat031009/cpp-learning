@@ -1,13 +1,12 @@
 #include <iostream>
-#include <Windows.h>
 #include <algorithm>
+
+double x , y ;
 
 using namespace std;
 
 int main()
 {
-    SetConsoleOutputCP(65001);
-    double x , y ;
     cout << "Nhập x : ";
     cin >> x ;
     cout << "\n"
