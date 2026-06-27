@@ -1,13 +1,13 @@
 #include <iostream>
-#include <Windows.h>
 
 using namespace std;
-float giaTien ;
+
+float giaTien, soKg ;
 string donViTien{ " nghìn Việt Nam đồng" };
-double soKg ;
 int soCai ;
 string donVi{ " chưa rõ đơn vị" };
 string xacNhan{ "No" };
+int maKhachHang ;
 
 double thue()
 {
@@ -19,7 +19,11 @@ double thue()
 	{
 		return giaTien * soCai * 0.1;
 	}
-};
+	else 
+	{
+		return 0;
+	}
+}
 double tong()
 {
 	if (soCai == 0)
@@ -30,20 +34,44 @@ double tong()
 	{
 		return (giaTien * soCai) + thue();
 	}
+	else 
+	{
+		return 0;
+	}
 }
 
 int main()
-{
-	SetConsoleOutputCP(65001);
+{	
+	while (maKhachHang <= 99999999 || maKhachHang >= 1000000000)
+	{
+		cout << "Vui lòng nhập Số Điện Thoại của bạn : ";
+		cin >> maKhachHang ;
+		if (maKhachHang <= 99999999 || maKhachHang >= 1000000000)
+		{
+			cout << "Bạn đã nhập sai Số Điện Thoại !" 
+			<< "\n"
+			<< "Vui lòng nhập lại !"
+			<< "\n";
+		}
+		else 
+		{
+			break;
+		}
+	}
 	while (xacNhan == "No" || xacNhan == "no")
 	{
+		if (maKhachHang == 868986725)
+		{
+			cout << "Bạn là chủ cửa hàng này nên sẽ không cần pay !";
+			break;
+		}
 		cout << "Giá tiền sản phẩm hiện tại của bạn là (đơn vị nghìn Việt Nam đồng) : ";
 		cin >> giaTien;
 
 		while (giaTien < 0 || giaTien == 0)
 		{
-			cout << "Giá tiền sản phẩm không hợp lệ. Vui lòng nhập lại. \n"
-				 << "Giá tiền sản phẩm hiện tại của bạn là (đơn vị nghìn Việt Nam đồng) : ";
+			cout << "Giá tiền sản phẩm không hợp lệ. Vui lòng nhập lại.\n"
+				<< "Giá tiền sản phẩm hiện tại của bạn là (đơn vị nghìn Việt Nam đồng) : ";
 			cin >> giaTien;
 		}
 		cout << "Nhập đơn vị (số kg hoặc số cái) sản phẩm bạn mua là : ";
@@ -51,7 +79,7 @@ int main()
 		while (donVi != "kg" && donVi != "Kg" && donVi != "KG" && donVi != "kG" && donVi != "cái" && donVi != "Cái" && donVi != "CÁI" && donVi != "cai")
 		{
 			cout << "Đơn vị không hợp lệ. Vui lòng nhập lại.\n"
-				 << "Nhập đơn vị (số kg hoặc số cái) sản phẩm bạn mua là : ";
+				<< "Nhập đơn vị (số kg hoặc số cái) sản phẩm bạn mua là : ";
 			cin >> donVi;
 		}
 		if (donVi == "kg" || donVi == "Kg" || donVi == "KG" || donVi == "kG" || donVi == "cái" || donVi == "Cái" || donVi == "CÁI" || donVi == "cai")
@@ -63,12 +91,14 @@ int main()
 				while (soKg < 0 || soKg == 0)
 				{
 					cout << "Cân nặng sản phẩm không hợp lệ. Vui lòng nhập lại.\n"
-						 << "Cân nặng sản phẩm bạn đang mua là : ";
+						<< "Cân nặng sản phẩm bạn đang mua là : ";
 					cin >> soKg;
 				}
 				cout << "\n"
-					 << "Giá tiền sản phẩm hiện tại của bạn là :  " << giaTien << donViTien << "\n"
-					 << "Sản phẩm bạn mua có :                    " << soKg << " " << "kg" << "\n";
+					<< "Giá tiền sản phẩm hiện tại của bạn là :  " << giaTien << donViTien 
+					<< "\n"
+					<< "Sản phẩm bạn mua có :                    " << soKg << " " << "kg" 
+					<< "\n";
 			}
 			if (donVi == "cái" || donVi == "Cái" || donVi == "CÁI" || donVi == "cai")
 			{
@@ -77,43 +107,47 @@ int main()
 				while (soCai < 0 || soCai == 0)
 				{
 					cout << "Số lượng sản phẩm không hợp lệ. Vui lòng nhập lại.\n"
-						 << "Số lượng sản phẩm bạn đang chọn là : ";
+						<< "Số lượng sản phẩm bạn đang chọn là : ";
 					cin >> soCai;
 				}
 				cout << "\n"
-					 << "Giá tiền sản phẩm hiện tại của bạn là :  " << giaTien << donViTien << "\n"
-					 << "Sản phẩm bạn mua có :                    " << soCai << " " << " cái" << "\n";
+					<< "Giá tiền sản phẩm hiện tại của bạn là :  " << giaTien << donViTien 
+					<< "\n"
+					<< "Sản phẩm bạn mua có :                    " << soCai << " " << " cái" 
+					<< "\n";
 			}
 		}
 		while (donVi != "kg" && donVi != "Kg" && donVi != "KG" && donVi != "kG" && donVi != "cái" && donVi != "Cái" && donVi != "CÁI" && donVi != "cai")
 		{
 			cout << "Đơn vị không hợp lệ. Vui lòng nhập lại.\n"
-				 << "Nhập đơn vị (số kg hoặc số cái) sản phẩm bạn mua là : ";
+				<< "Nhập đơn vị (số kg hoặc số cái) sản phẩm bạn mua là : ";
 			cin >> donVi;
 		}
-		cout << "Thuế GTGT ( 10% ) là :                   " << thue() << donViTien << "\n"
-			 << "Tổng tiền bạn cần thanh toán là :        " << tong() << donViTien << "\n"
-			 << "\n"
-			 << "\n"
-			 << "Bạn đã chắc chắn nhập đúng thông tin chưa ? (Yes /No ) : ";
+		cout << "Thuế GTGT ( 10% ) là :                   " << thue() << donViTien 
+			<< "\n"
+			<< "Tổng tiền bạn cần thanh toán là :        " << tong() << donViTien 
+			<< "\n"
+			<< "\n"
+			<< "\n"
+			<< "Bạn đã chắc chắn nhập đúng thông tin chưa ? (Yes /No ) : ";
 		cin >> xacNhan;
 		cout << "\n"
-			 << "\n"	
-			 << "\n";
+			<< "\n"	
+			<< "\n";
 	}
 	if (xacNhan == "Yes" || xacNhan == "yes")
 	{
 		if (tong() == 1210)
 		{
-			cout << "                                   hmmm " << "---- Who is that ?";
+			cout << "                                   hmmm " << "---- Who is this ?";
 		}
 		else
 		{
 			cout << "------         Cảm ơn bạn đã sử dụng chương trình của chúng tôi. Chúc bạn một ngày tốt lành!         ------";
 		}
 		cout << "\n"
-			 << "\n"
-			 << "\n";
+			<< "\n"
+			<< "\n";
 	}
 	return 0;
 }
