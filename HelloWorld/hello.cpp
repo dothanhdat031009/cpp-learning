@@ -66,7 +66,7 @@ int main()
 			break;
 		}
 		cout << "Giá tiền sản phẩm hiện tại của bạn là (đơn vị nghìn Việt Nam đồng) : ";
-		cin >> giaTien;
+		cin >> giaTien;	
 
 		while (giaTien < 0 || giaTien == 0)
 		{
@@ -137,14 +137,7 @@ int main()
 	}
 	if (xacNhan == "Yes" || xacNhan == "yes")
 	{
-		if (tong() == 1210)
-		{
-			cout << "                                   hmmm " << "---- Who is this ?";
-		}
-		else
-		{
-			cout << "------         Cảm ơn bạn đã sử dụng chương trình của chúng tôi. Chúc bạn một ngày tốt lành!         ------";
-		}
+		string ketQua = (tong() == 1210)? "                                   hmmm ---- Who is this ?" : "------         Cảm ơn bạn đã sử dụng chương trình của chúng tôi. Chúc bạn một ngày tốt lành!         ------";
 		cout << "\n"
 			<< "\n"
 			<< "\n";
