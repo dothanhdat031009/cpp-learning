@@ -6,7 +6,7 @@ float giaTien, soKg ;
 string donViTien{ " nghìn Việt Nam đồng" };
 int soCai ;
 string donVi{ " chưa rõ đơn vị" };
-string xacNhan{ "No" };
+string xacNhan{ "No" };	
 int maKhachHang ;
 
 double thue()
@@ -142,5 +142,6 @@ int main()
 			<< "\n"
 			<< "\n";
 	}
+
 	return 0;
 }
