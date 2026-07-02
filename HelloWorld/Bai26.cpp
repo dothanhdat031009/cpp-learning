@@ -1,7 +1,6 @@
 #include <iostream>
 
 int N = 0 ;
-int x = 3 ;
 int y = 2 ;
 using namespace std;
 
@@ -11,7 +10,7 @@ int main()
     {
         cout << "Nhập N : ";
         cin >> N ;
-        cout << "\n"
+        cout << "\n";
         if (N <= 0)
         {
             cout << "Bạn nhập sai số N !"
@@ -21,17 +20,22 @@ int main()
     }
     while (y < N)
     {
-        y++ ;
-        while (x < y)
+        int x = 2 ;
+        while (x <= y)
         {
-            x++ ;
             if (y % x == 0 && x != y)
             {
-                cout << y << "\n" ;
                 break ;
             }
+            else if (x == y)
+            {
+                cout << y
+                << "\n";
+                break;
+            }
+            x++ ;
         }
+        y++ ;   
     }
-    
     return 0;
 }
