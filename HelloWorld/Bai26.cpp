@@ -11,6 +11,7 @@ int main()
     {
         cout << "Nhập N : ";
         cin >> N ;
+        cout << "\n"
         if (N <= 0)
         {
             cout << "Bạn nhập sai số N !"
@@ -20,6 +21,16 @@ int main()
     }
     while (y < N)
     {
+        y++ ;
+        while (x < y)
+        {
+            x++ ;
+            if (y % x == 0 && x != y)
+            {
+                cout << y << "\n" ;
+                break ;
+            }
+        }
     }
     
     return 0;
