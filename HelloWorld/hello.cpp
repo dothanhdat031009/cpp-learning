@@ -1,147 +1,83 @@
 #include <iostream>
 
-using namespace std;
-
-float giaTien, soKg ;
-string donViTien{ " nghìn Việt Nam đồng" };
-int soCai ;
-string donVi{ " chưa rõ đơn vị" };
-string xacNhan{ "No" };	
-int maKhachHang ;
-
-double thue()
+double gia_tien, so_luong, tong ;
+int id = 0 ;
+namespace khach_hang
 {
-	if (soCai == 0)
+	int khach_hang()
 	{
-		return giaTien * soKg * 0.1;
-	}
-	if (soKg == 0)
-	{
-		return giaTien * soCai * 0.1;
-	}
-	else 
-	{
-		return 0;
+		while (id <= 99999999 || id >= 1000000000)
+		{
+			std::cout << "Vui lòng nhập Số điện thoại của bạn : ";
+			std::cin >> id ;
+			if (id <= 99999999 || id >= 1000000000)
+			{
+				std::cout << "Bạn nhập sai Số điện thoại !"
+					 	  << "\n"
+						  << "Vui lòng nhập lại !"
+						  << "\n";
+			}
+		}
+		return 0 ;
 	}
 }
-double tong()
-{
-	if (soCai == 0)
-	{
-		return (giaTien * soKg) + thue();
-	}
-	if (soKg == 0)
-	{
-		return (giaTien * soCai) + thue();
-	}
-	else 
-	{
-		return 0;
-	}
-}
-
+std::string tiep_tuc = "Yes";
 int main()
-{	
-	while (maKhachHang <= 99999999 || maKhachHang >= 1000000000)
+{
+	khach_hang::khach_hang() ;
+	
+	while (tiep_tuc == "Yes" || tiep_tuc == "yes" || tiep_tuc == "YES")
 	{
-		cout << "Vui lòng nhập Số Điện Thoại của bạn : ";
-		cin >> maKhachHang ;
-		if (maKhachHang <= 99999999 || maKhachHang >= 1000000000)
+		if (id == 868986725)
 		{
-			cout << "Bạn đã nhập sai Số Điện Thoại !" 
-			<< "\n"
-			<< "Vui lòng nhập lại !"
-			<< "\n";
-		}
-		else 
-		{
+			std::cout << "Bạn là chủ cửa hàng nên không cần thanh toán !";
 			break;
 		}
-	}
-	while (xacNhan == "No" || xacNhan == "no")
-	{
-		if (maKhachHang == 868986725)
+		std::cout << "Vui lòng nhập giá tiền mỗi loại sản phẩm : ";
+		std::cin >> gia_tien ;
+		if (gia_tien <= 0)
 		{
-			cout << "Bạn là chủ cửa hàng này nên sẽ không cần pay !";
-			break;
+			std::cout << "Bạn nhập sai giá tiền !"
+					   << "\n"
+					  << "Vui lòng nhập lại !";
 		}
-		cout << "Giá tiền sản phẩm hiện tại của bạn là (đơn vị nghìn Việt Nam đồng) : ";
-		cin >> giaTien;	
+		else
+		{
+			std::cout << "Vui lòng nhập số lượng sản phẩm : ";
+			std::cin >> so_luong ;
+			tong = tong + ( so_luong * gia_tien ) * (1 + 0.008) ;
+		}
 
-		while (giaTien < 0 || giaTien == 0)
+		std::cout << "\n"
+				  << "Bạn còn sản phẩm nữa không ? (Yes / No) : ";
+		std::cin >> tiep_tuc ;
+
+		while (tiep_tuc !=  "Yes" && tiep_tuc != "yes" && tiep_tuc != "YES" && tiep_tuc != "No" && tiep_tuc != "no" && tiep_tuc != "NO")
 		{
-			cout << "Giá tiền sản phẩm không hợp lệ. Vui lòng nhập lại.\n"
-				<< "Giá tiền sản phẩm hiện tại của bạn là (đơn vị nghìn Việt Nam đồng) : ";
-			cin >> giaTien;
-		}
-		cout << "Nhập đơn vị (số kg hoặc số cái) sản phẩm bạn mua là : ";
-		cin >> donVi;
-		while (donVi != "kg" && donVi != "Kg" && donVi != "KG" && donVi != "kG" && donVi != "cái" && donVi != "Cái" && donVi != "CÁI" && donVi != "cai")
-		{
-			cout << "Đơn vị không hợp lệ. Vui lòng nhập lại.\n"
-				<< "Nhập đơn vị (số kg hoặc số cái) sản phẩm bạn mua là : ";
-			cin >> donVi;
-		}
-		if (donVi == "kg" || donVi == "Kg" || donVi == "KG" || donVi == "kG" || donVi == "cái" || donVi == "Cái" || donVi == "CÁI" || donVi == "cai")
-		{
-			if (donVi == "kg" || donVi == "Kg" || donVi == "KG" || donVi == "kG")
+			std::cout << "\n" 
+					  << "Vui lòng nhập đúng !" ;
+			if (tiep_tuc !=  "Yes" && tiep_tuc != "yes" && tiep_tuc != "YES" && tiep_tuc != "No" && tiep_tuc != "no" && tiep_tuc != "NO")
 			{
-				cout << "Cân nặng sản phẩm bạn đang mua là : ";
-				cin >> soKg;
-				while (soKg < 0 || soKg == 0)
-				{
-					cout << "Cân nặng sản phẩm không hợp lệ. Vui lòng nhập lại.\n"
-						<< "Cân nặng sản phẩm bạn đang mua là : ";
-					cin >> soKg;
-				}
-				cout << "\n"
-					<< "Giá tiền sản phẩm hiện tại của bạn là :  " << giaTien << donViTien 
-					<< "\n"
-					<< "Sản phẩm bạn mua có :                    " << soKg << " " << "kg" 
-					<< "\n";
-			}
-			if (donVi == "cái" || donVi == "Cái" || donVi == "CÁI" || donVi == "cai")
-			{
-				cout << "Số lượng sản phẩm bạn đang chọn là : ";
-				cin >> soCai;
-				while (soCai < 0 || soCai == 0)
-				{
-					cout << "Số lượng sản phẩm không hợp lệ. Vui lòng nhập lại.\n"
-						<< "Số lượng sản phẩm bạn đang chọn là : ";
-					cin >> soCai;
-				}
-				cout << "\n"
-					<< "Giá tiền sản phẩm hiện tại của bạn là :  " << giaTien << donViTien 
-					<< "\n"
-					<< "Sản phẩm bạn mua có :                    " << soCai << " " << " cái" 
-					<< "\n";
+				std::cout << "\n"
+							<< "Bạn còn sản phẩm nữa không ? (Yes / No) : ";
+				std::cin >> tiep_tuc ;
 			}
 		}
-		while (donVi != "kg" && donVi != "Kg" && donVi != "KG" && donVi != "kG" && donVi != "cái" && donVi != "Cái" && donVi != "CÁI" && donVi != "cai")
-		{
-			cout << "Đơn vị không hợp lệ. Vui lòng nhập lại.\n"
-				<< "Nhập đơn vị (số kg hoặc số cái) sản phẩm bạn mua là : ";
-			cin >> donVi;
-		}
-		cout << "Thuế GTGT ( 10% ) là :                   " << thue() << donViTien 
-			<< "\n"
-			<< "Tổng tiền bạn cần thanh toán là :        " << tong() << donViTien 
-			<< "\n"
-			<< "\n"
-			<< "\n"
-			<< "Bạn đã chắc chắn nhập đúng thông tin chưa ? (Yes /No ) : ";
-		cin >> xacNhan;
-		cout << "\n"
-			<< "\n"	
-			<< "\n";
 	}
-	if (xacNhan == "Yes" || xacNhan == "yes")
+	if (tiep_tuc == "No" || tiep_tuc == "no" || tiep_tuc == "NO")
 	{
-		string ketQua = (tong() == 1210)? "                                   hmmm ---- Who is this ?" : "------         Cảm ơn bạn đã sử dụng chương trình của chúng tôi. Chúc bạn một ngày tốt lành!         ------";
-		cout << "\n"
-			<< "\n"
-			<< "\n";
+		std::cout << "Số tiền bạn cần thanh toán là : "
+				  << tong ;
+		std::cout << "\n"
+			      << "\n"
+				  << "                   Vui lòng hãy thanh toán ở máy thanh toán !                   " ;
 	}
-
-	return 0;
+	std::cout << "\n"
+			  << "\n"
+			  << "\n"
+			  << "             --- Cảm ơn bạn đã tin dùng mua hàng bên chúng tôi ---              "
+			  << "\n"
+			  << "\n"
+			  << "\n";
+	return 0 ;
 }
