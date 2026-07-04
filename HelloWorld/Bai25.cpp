@@ -14,7 +14,7 @@ int main()
         {
             cout << "Bạn nhập sai số N !"
             << "\n"
-            << "Vui lòng nhập lại (N là số nguyên dương)" ;
+            << "Vui lòng nhập lại (N là số nguyên dương) !" ;
         }
     }
     while (N % x != 0 && x != N)
@@ -22,13 +22,13 @@ int main()
         x++ ;
         if (N == 1 || N % x == 0 && x != N)
         {
-            cout << "N không phải là số nguyên tố" ;
+            cout << "N không phải là số nguyên tố !" ;
             break ;
         }
     }
     if (N == x)
     {
-        cout << "N là số nguyên tố" ;
+        cout << "N là số nguyên tố !" ;
     }
     return 0;
 }
