@@ -14,8 +14,8 @@ int main()
     cout << "Nhap so hang:";
     cin >> hang;
 
-    int array[cot][hang];
-
+    string array[cot][hang];
+    cin.ignore();
     for (int i = 0; i < cot; i++) {
         for (int j = 0; j < hang; j++) {
             string msg = "Nhap array[" + to_string(i) + "][" + to_string(j) + "] = ";
